@@ -1,0 +1,78 @@
+{
+	"name": "productive-scares",
+	"version": "0.1.0",
+	"description": "Keep you on your toes by scaring you occansionally while you code.",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"license": "MIT",
+	"author": {
+		"name": "Jacob McGowan"
+	},
+	"repository": {
+		"url": "https://github.com/jacobmcgowan/game-score",
+		"type": "git"
+	},
+	"publisher": "jacob-mcgowan",
+	"icon": "images/icon.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./dist/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "productiveScares.start",
+				"title": "Productive Scares: Start"
+			},
+			{
+				"command": "productiveScares.stop",
+				"title": "Productive Scares: Stop"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"Title": "Productive Scares Configuration",
+			"properties": {
+				"productiveScares.frequencyMin": {
+					"type": "number",
+					"default": 60000,
+					"description": "The minimum time to wait before scaring the user again."
+				},
+				"productiveScares.frequencyMax": {
+					"type": "number",
+					"default": 120000,
+					"description": "The maximum time to wait before scaring the user again."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"test-compile": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.14.22",
+		"@types/vscode": "^1.37.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"ts-loader": "^6.2.0",
+		"tslint": "^5.20.0",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.0.2",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.9"
+	},
+	"dependencies": {}
+}
